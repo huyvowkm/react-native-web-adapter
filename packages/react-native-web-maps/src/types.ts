@@ -128,3 +128,5 @@ export interface PolygonProps extends Omit<OriginPolygonProps, 'path' | 'paths' 
   tappable?: boolean
   // onPress?: (event: MapEvent) => void
 }
+
+export type { Region, PROVIDER_GOOGLE } from 'react-native-maps'
