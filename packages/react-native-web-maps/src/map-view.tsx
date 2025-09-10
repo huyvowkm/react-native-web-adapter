@@ -23,12 +23,12 @@ const MapView = forwardRef(function MapView ({
   onMapReady,
   onRegionChange,
   onRegionChangeComplete,
-  onPress,
-  onDoublePress,
-  onPanDrag,
+  // onPress,
+  // onDoublePress,
+  // onPanDrag,
   ...props
 }: MapViewProps, ref: ForwardedRef<MapViewHandle>) {
-  const instance = useRef<google.maps.Map>()
+  const instance = useRef<google.maps.Map| null>(null)
   const options: google.maps.MapOptions = useMemo(() => {
     return Object.assign(DEFAULT_OPTIONS, {
       gestureHandling: zoomEnabled ? 'auto' : 'none',
@@ -148,44 +148,41 @@ const MapView = forwardRef(function MapView ({
   const onDrag = (): void => {
     const _region = getCurrentRegion()
     onRegionChange?.(_region, { isGesture: true })
-    onPanDrag?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: _region.latitude,
-          longitude: _region.longitude
-        }
-      }
-    })
+    // onPanDrag?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: _region.latitude,
+    //       longitude: _region.longitude
+    //     }
+    //   }
+    // })
   }
 
   const onClick = (e: google.maps.MapMouseEvent): void => {
-    onPress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        action: 'press',
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onPress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     action: 'press',
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   const onDblClick = (e: google.maps.MapMouseEvent): void => {
-    onDoublePress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        action: 'press',
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onDoublePress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     action: 'press',
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   return (

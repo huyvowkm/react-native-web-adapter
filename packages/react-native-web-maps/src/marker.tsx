@@ -11,10 +11,10 @@ const Marker: React.FC<MarkerProps> = ({
   image,
   icon: provideIcon,
   scaledSize,
-  onPress,
-  onDrag: provideOnDrag,
-  onDragStart: provideOnDragStart,
-  onDragEnd: provideOnDragEnd,
+  // onPress,
+  // onDrag: provideOnDrag,
+  // onDragStart: provideOnDragStart,
+  // onDragEnd: provideOnDragEnd,
   ...props
 }) => {
   const icon: google.maps.Icon | undefined = useMemo(() => {
@@ -32,56 +32,52 @@ const Marker: React.FC<MarkerProps> = ({
   }, [anchor, image, provideIcon, scaledSize])
 
   const onClick = (e: google.maps.MapMouseEvent): void => {
-    onPress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        action: 'marker-press',
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onPress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     action: 'marker-press',
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   const onDrag = (e: google.maps.MapMouseEvent): void => {
-    provideOnDrag?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // provideOnDrag?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   const onDragStart = (e: google.maps.MapMouseEvent): void => {
-    provideOnDragStart?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // provideOnDragStart?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   const onDragEnd = (e: google.maps.MapMouseEvent): void => {
-    provideOnDragEnd?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // provideOnDragEnd?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   return (

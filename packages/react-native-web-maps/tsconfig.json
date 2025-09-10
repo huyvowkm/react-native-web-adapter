@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "tslib": ["node_modules/tslib/tslib.d.ts"]
+    },
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "es2015",
+    "useDefineForClassFields": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom"],
+    "types": ["node", "google.maps"],
+    "rootDir": "."
+  },
+  "include": ["src"],
+  "exclude": ["node_modules/", "dist/"]
+}
