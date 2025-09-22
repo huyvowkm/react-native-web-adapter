@@ -8,7 +8,7 @@
     "web"
   ],
   "license": "MIT",
-  "repository": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps",
+  "repository": "https://github.com/huyvowkm/react-native-web-adapter/tree/feat/map-build/packages/react-native-web-maps",
   "author": "huyvowkm (https://github.com/huyvowkm)",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm-bundler.js",
@@ -19,9 +19,9 @@
     "build": "node scripts/build"
   },
   "bugs": {
-    "url": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps/issues"
+    "url": "https://github.com/huyvowkm/react-native-web-adapter/issues"
   },
-  "homepage": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps",
+  "homepage": "https://github.com/huyvowkm/react-native-web-adapter/tree/feat/map-build/packages/react-native-web-maps",
   "peerDependencies": {
     "react": "19.0.0",
     "react-dom": "19.0.0",
