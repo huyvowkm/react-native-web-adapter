@@ -4,3 +4,5 @@ dist/
 # changeset release
 .pnpm-store
 .npmrc
+
+*.lock

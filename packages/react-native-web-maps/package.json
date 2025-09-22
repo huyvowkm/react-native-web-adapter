@@ -14,6 +14,7 @@
   "module": "dist/index.esm-bundler.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
+    "prepare": "yarn install && yarn build",
     "postinstall": "yarn build",
     "build": "node scripts/build"
   },
