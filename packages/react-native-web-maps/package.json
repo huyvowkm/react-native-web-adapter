@@ -8,8 +8,8 @@
     "web"
   ],
   "license": "MIT",
-  "repository": "https://github.com/preflower/react-native-web-adapter/tree/master/packages/react-native-web-maps",
-  "author": "Ted Lin <preflower.lin@gmail.com> (https://github.com/preflower)",
+  "repository": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps",
+  "author": "huyvowkm (https://github.com/huyvowkm)",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm-bundler.js",
   "types": "dist/src/index.d.ts",
@@ -19,9 +19,9 @@
     "build": "node scripts/build"
   },
   "bugs": {
-    "url": "https://github.com/preflower/react-native-web-adapter/issues"
+    "url": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps/issues"
   },
-  "homepage": "https://github.com/preflower/react-native-web-adapter/tree/master/packages/react-native-web-maps",
+  "homepage": "https://github.com/huyvowkm/react-native-web-adapter/tree/master/packages/react-native-web-maps",
   "peerDependencies": {
     "react": "19.0.0",
     "react-dom": "19.0.0",
