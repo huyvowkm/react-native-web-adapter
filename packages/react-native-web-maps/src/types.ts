@@ -5,7 +5,7 @@ import {
   PolygonProps as OriginPolygonProps
 } from '@react-google-maps/api'
 import { StyleProp, ViewStyle } from 'react-native'
-import { LatLng, Point, Region, MapEvent, Camera } from 'react-native-maps'
+import { LatLng, Point, Region, Camera } from 'react-native-maps'
 import { MAP_TYPE_MAPS } from './config'
 
 export type GoogleMapProps = Omit<OriginGoogleMapProps,
@@ -68,18 +68,18 @@ export interface MapViewProps extends GoogleMapProps {
     * onDragEnd, onZoomChanged
     */
   onRegionChangeComplete?: (region: Region, details?: { isGesture: boolean }) => void
-  /**
-   * onClick
-   */
-  onPress?: (event: MapEvent) => void
-  /**
-   * onDblClick
-   */
-  onDoublePress?: (event: MapEvent) => void
-  /**
-   * onDrag
-   */
-  onPanDrag?: (event: MapEvent) => void
+  // /**
+  //  * onClick
+  //  */
+  // onPress?: (event: MapEvent) => void
+  // /**
+  //  * onDblClick
+  //  */
+  // onDoublePress?: (event: MapEvent) => void
+  // /**
+  //  * onDrag
+  //  */
+  // onPanDrag?: (event: MapEvent) => void
 }
 
 export interface MarkerProps extends Omit<OriginMarkerProps, 'position' | 'onClick' | 'onDrag' | 'onDragStart' | 'onDragEnd'> {
@@ -96,13 +96,13 @@ export interface MarkerProps extends Omit<OriginMarkerProps, 'position' | 'onCli
    * google.maps.Icon.origin
    */
   anchor?: Point
-  onPress?: (event: MapEvent<{ action: 'marker-press' }>) => void
-  /**
-   * onDrag, onDragStart, onDragEnd
-   */
-  onDrag?: (event: MapEvent) => void
-  onDragStart?: (event: MapEvent) => void
-  onDragEnd?: (event: MapEvent) => void
+  // onPress?: (event: MapEvent<{ action: 'marker-press' }>) => void
+  // /**
+  //  * onDrag, onDragStart, onDragEnd
+  //  */
+  // onDrag?: (event: MapEvent) => void
+  // onDragStart?: (event: MapEvent) => void
+  // onDragEnd?: (event: MapEvent) => void
   /**
    * options.scaledSize
    */
@@ -115,7 +115,7 @@ export interface PolylineProps extends Omit<OriginPolylineProps, 'path' | 'onCli
   strokeColor?: string
   geodesic?: boolean
   tappable?: boolean
-  onPress?: (event: MapEvent) => void
+  // onPress?: (event: MapEvent) => void
 }
 
 export interface PolygonProps extends Omit<OriginPolygonProps, 'path' | 'paths' | 'onClick'> {
@@ -126,5 +126,7 @@ export interface PolygonProps extends Omit<OriginPolygonProps, 'path' | 'paths' 
   fillColor?: string
   geodesic?: boolean
   tappable?: boolean
-  onPress?: (event: MapEvent) => void
+  // onPress?: (event: MapEvent) => void
 }
+
+export type { Region, PROVIDER_GOOGLE } from 'react-native-maps'

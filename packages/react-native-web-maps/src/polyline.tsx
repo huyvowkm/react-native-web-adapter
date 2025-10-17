@@ -9,7 +9,7 @@ const Polyline: FunctionComponent<PolylineProps> = ({
   geodesic = false,
   tappable = false,
   options: provideOptions,
-  onPress,
+  // onPress,
   ...props
 }) => {
   const path = useMemo(() => {
@@ -28,16 +28,15 @@ const Polyline: FunctionComponent<PolylineProps> = ({
   }, [provideOptions, strokeWidth, strokeColor, geodesic, tappable])
 
   const onClick = (e: google.maps.MapMouseEvent): void => {
-    onPress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onPress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   return (

@@ -11,7 +11,7 @@ const Polygon: FunctionComponent<PolygonProps> = ({
   tappable = false,
   fillColor = 'rgba(0,0,0,0.5)',
   options: provideOptions,
-  onPress,
+  // onPress,
   ...props
 }) => {
   const path = useMemo(() => {
@@ -37,16 +37,15 @@ const Polygon: FunctionComponent<PolygonProps> = ({
   }, [provideOptions, strokeWidth, strokeColor, fillColor, geodesic, tappable])
 
   const onClick = (e: google.maps.MapMouseEvent): void => {
-    onPress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onPress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   return (

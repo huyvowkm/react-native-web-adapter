@@ -1,6 +1,6 @@
 {
-  "name": "@preflower/react-native-web-maps",
-  "version": "0.2.0",
+  "name": "@huyvowkm/react-native-web-maps",
+  "version": "0.0.1",
   "description": "react-native-maps for Web, base on @react-google-maps/api",
   "keywords": [
     "react-native-maps",
@@ -8,19 +8,23 @@
     "web"
   ],
   "license": "MIT",
-  "repository": "https://github.com/preflower/react-native-web-adapter/tree/master/packages/react-native-web-maps",
-  "author": "Ted Lin <preflower.lin@gmail.com> (https://github.com/preflower)",
+  "repository": "https://github.com/huyvowkm/react-native-web-adapter/tree/feat/map-build/packages/react-native-web-maps",
+  "author": "huyvowkm (https://github.com/huyvowkm)",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm-bundler.js",
-  "types": "dist/index.d.ts",
-  "bugs": {
-    "url": "https://github.com/preflower/react-native-web-adapter/issues"
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "postinstall": "yarn build",
+    "build": "node scripts/build"
   },
-  "homepage": "https://github.com/preflower/react-native-web-adapter/tree/master/packages/react-native-web-maps",
+  "bugs": {
+    "url": "https://github.com/huyvowkm/react-native-web-adapter/issues"
+  },
+  "homepage": "https://github.com/huyvowkm/react-native-web-adapter/tree/feat/map-build/packages/react-native-web-maps",
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*",
-    "react-native-web": "*"
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native-web": "^0.21.0"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
@@ -28,11 +32,22 @@
     "react-use": "^17.3.2"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-native": "^0.76.6",
-    "react-native-maps": "^0.31.1",
-    "react-native-web": "^0.19.13"
+    "@microsoft/api-extractor": "^7.52.11",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "execa": "^4.1.0",
+    "fs-extra": "^10.1.0",
+    "minimist": "^1.2.8",
+    "ora": "^5.4.1",
+    "react-native": "0.79.5",
+    "react-native-maps": "1.25.5",
+    "react-native-web": "^0.21.0",
+    "rollup": "^2.79.2",
+    "rollup-plugin-import-css": "^3.5.8",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^4.9.5"
   },
   "publishConfig": {
     "access": "public"

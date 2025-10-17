@@ -23,12 +23,12 @@ const MapView = forwardRef(function MapView ({
   onMapReady,
   onRegionChange,
   onRegionChangeComplete,
-  onPress,
-  onDoublePress,
-  onPanDrag,
+  // onPress,
+  // onDoublePress,
+  // onPanDrag,
   ...props
 }: MapViewProps, ref: ForwardedRef<MapViewHandle>) {
-  const instance = useRef<google.maps.Map>()
+  const instance = useRef<google.maps.Map | null>(null)
   const options: google.maps.MapOptions = useMemo(() => {
     return Object.assign(DEFAULT_OPTIONS, {
       gestureHandling: zoomEnabled ? 'auto' : 'none',
@@ -54,16 +54,16 @@ const MapView = forwardRef(function MapView ({
 
   useImperativeHandle(ref, () => ({
     getCamera () {
-      const center = instance.current!.getCenter()!
+      const center = instance.current?.getCenter()!
       return {
         center: {
-          latitude: center.lat(),
-          longitude: center.lng()
+          latitude: center?.lat() ?? 0,
+          longitude: center?.lng() ?? 0
         },
-        pitch: instance.current!.getTilt()!,
+        pitch: instance.current?.getTilt() ?? 0,
         altitude: 0, // it will be ignored by Google Maps
-        heading: instance.current!.getHeading()!,
-        zoom: instance.current!.getZoom()!
+        heading: instance.current?.getHeading() ?? 0,
+        zoom: instance.current?.getZoom() ?? 0
       }
     },
     /**
@@ -88,7 +88,7 @@ const MapView = forwardRef(function MapView ({
         ...others
       })
     },
-    animateToRegion (region) {
+    animateToRegion (region: Region) {
       instance.current?.panTo({
         lat: region.latitude,
         lng: region.longitude
@@ -110,14 +110,14 @@ const MapView = forwardRef(function MapView ({
   }
 
   const getCurrentRegion = (): Region => {
-    const zoom = instance.current!.getZoom()!
-    const center = instance.current!.getCenter()!
-    const delta = zoomReverseDelta(zoom, deltaRadio)
+    const zoom = instance.current?.getZoom()
+    const center = instance.current?.getCenter()
+    const delta = zoom === null ? null : zoomReverseDelta(zoom!, deltaRadio)
     return {
-      latitude: center.lat(),
-      latitudeDelta: delta.latitudeDelta,
-      longitude: center.lng(),
-      longitudeDelta: delta.longitudeDelta
+      latitude: center?.lat() ?? 0,
+      latitudeDelta: delta?.latitudeDelta ?? 0,
+      longitude: center?.lng() ?? 0,
+      longitudeDelta: delta?.longitudeDelta ?? 0
     }
   }
 
@@ -148,44 +148,41 @@ const MapView = forwardRef(function MapView ({
   const onDrag = (): void => {
     const _region = getCurrentRegion()
     onRegionChange?.(_region, { isGesture: true })
-    onPanDrag?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        coordinate: {
-          latitude: _region.latitude,
-          longitude: _region.longitude
-        }
-      }
-    })
+    // onPanDrag?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     coordinate: {
+    //       latitude: _region.latitude,
+    //       longitude: _region.longitude
+    //     }
+    //   }
+    // })
   }
 
   const onClick = (e: google.maps.MapMouseEvent): void => {
-    onPress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        action: 'press',
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onPress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     action: 'press',
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   const onDblClick = (e: google.maps.MapMouseEvent): void => {
-    onDoublePress?.({
-      // @ts-expect-error
-      // nativeEvent not support position
-      nativeEvent: {
-        action: 'press',
-        coordinate: {
-          latitude: e.latLng!.lat(),
-          longitude: e.latLng!.lng()
-        }
-      }
-    })
+    // onDoublePress?.({
+    //   // nativeEvent not support position
+    //   nativeEvent: {
+    //     action: 'press',
+    //     coordinate: {
+    //       latitude: e.latLng!.lat(),
+    //       longitude: e.latLng!.lng()
+    //     }
+    //   }
+    // })
   }
 
   return (
