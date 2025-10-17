@@ -1,125 +1,152 @@
-import { ForwardedRef, forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import { GoogleMap } from '@react-google-maps/api'
-import { Region, Camera } from 'react-native-maps'
-import { useUpdateEffect } from 'react-use'
-import { View } from 'react-native'
+import {
+  ForwardedRef,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
+import { GoogleMap } from '@react-google-maps/api';
+import { Region, Camera } from 'react-native-maps';
+import { useUpdateEffect } from 'react-use';
+import { View } from 'react-native';
 
-import { calcZoom, zoomReverseDelta } from './utils'
-import { DEFAULT_OPTIONS, MAP_TYPE_MAPS, DEFAULT_REGION } from './config'
-import { MapViewHandle, MapViewProps } from './types'
+import { calcZoom, zoomReverseDelta } from './utils';
+import { DEFAULT_OPTIONS, MAP_TYPE_MAPS, DEFAULT_REGION } from './config';
+import { MapViewHandle, MapViewProps } from './types';
 
-const MapView = forwardRef(function MapView ({
-  region,
-  initialRegion,
-  style,
-  zoomEnabled = true,
-  zoomControlEnabled = true,
-  zoomTapEnabled = true,
-  minZoomLevel,
-  maxZoomLevel,
-  mapType = 'standard',
-  customMapStyle,
-  options: provideOptions,
-  onMapReady,
-  onRegionChange,
-  onRegionChangeComplete,
-  // onPress,
-  // onDoublePress,
-  // onPanDrag,
-  ...props
-}: MapViewProps, ref: ForwardedRef<MapViewHandle>) {
-  const instance = useRef<google.maps.Map | null>(null)
-  const options: google.maps.MapOptions = useMemo(() => {
-    return Object.assign(DEFAULT_OPTIONS, {
+const MapView = forwardRef(function MapView(
+  {
+    region,
+    initialRegion,
+    style,
+    zoomEnabled = true,
+    zoomControlEnabled = true,
+    zoomTapEnabled = true,
+    minZoomLevel,
+    maxZoomLevel,
+    mapType = 'standard',
+    customMapStyle,
+    options: provideOptions,
+    onMapReady,
+    onRegionChange,
+    onRegionChangeComplete,
+    ...props
+  }: MapViewProps,
+  ref: ForwardedRef<MapViewHandle>
+) {
+  const instance = useRef<google.maps.Map | null>(null);
+
+  const options: google.maps.MapOptions = useMemo(
+    () => ({
+      ...DEFAULT_OPTIONS,
       gestureHandling: zoomEnabled ? 'auto' : 'none',
       zoomControl: zoomControlEnabled,
       disableDoubleClickZoom: !zoomTapEnabled,
       mapTypeId: MAP_TYPE_MAPS[mapType],
       styles: customMapStyle,
       minZoom: minZoomLevel,
-      maxZoom: maxZoomLevel
-    }, provideOptions)
-  }, [zoomEnabled, zoomControlEnabled, zoomTapEnabled, mapType, customMapStyle, minZoomLevel, maxZoomLevel, provideOptions])
+      maxZoom: maxZoomLevel,
+      ...provideOptions
+    }),
+    [
+      zoomEnabled,
+      zoomControlEnabled,
+      zoomTapEnabled,
+      mapType,
+      customMapStyle,
+      minZoomLevel,
+      maxZoomLevel,
+      provideOptions
+    ]
+  );
+
   const [center, setCenter] = useState<google.maps.LatLngLiteral>(() => ({
     lat: region?.latitude ?? initialRegion?.latitude ?? DEFAULT_REGION.latitude,
     lng: region?.longitude ?? initialRegion?.longitude ?? DEFAULT_REGION.longitude
-  }))
-  const [zoom, setZoom] = useState<number>(() => {
-    return calcZoom(region?.longitudeDelta ?? initialRegion?.longitudeDelta ?? DEFAULT_REGION.longitudeDelta)
-  })
-  const deltaRadio = useMemo(() => {
-    return (region?.latitudeDelta ?? initialRegion?.latitudeDelta ?? DEFAULT_REGION.latitudeDelta) /
-    (region?.longitudeDelta ?? initialRegion?.longitudeDelta ?? DEFAULT_REGION.longitudeDelta)
-  }, [region])
+  }));
 
+  const [zoom, setZoom] = useState<number>(() =>
+    calcZoom(
+      region?.longitudeDelta ??
+        initialRegion?.longitudeDelta ??
+        DEFAULT_REGION.longitudeDelta
+    )
+  );
+
+  const deltaRatio = useMemo(() => {
+    return (
+      (region?.latitudeDelta ??
+        initialRegion?.latitudeDelta ??
+        DEFAULT_REGION.latitudeDelta) /
+      (region?.longitudeDelta ??
+        initialRegion?.longitudeDelta ??
+        DEFAULT_REGION.longitudeDelta)
+    );
+  }, [region, initialRegion]);
+
+  // Expose imperative methods
   useImperativeHandle(ref, () => ({
-    getCamera () {
-      const center = instance.current?.getCenter()!
+    getCamera() {
+      const center = instance.current?.getCenter()!;
       return {
         center: {
           latitude: center?.lat() ?? 0,
           longitude: center?.lng() ?? 0
         },
         pitch: instance.current?.getTilt() ?? 0,
-        altitude: 0, // it will be ignored by Google Maps
+        altitude: 0,
         heading: instance.current?.getHeading() ?? 0,
         zoom: instance.current?.getZoom() ?? 0
-      }
+      };
     },
-    /**
-     * different with react-native-maps, no animation
-     * @param {Camera}
-     */
-    animateCamera ({ center, ...others }: Camera) {
+    animateCamera({ center, ...others }: Camera) {
       instance.current?.moveCamera({
-        center: {
-          lat: center.latitude,
-          lng: center.longitude
-        },
+        center: { lat: center.latitude, lng: center.longitude },
         ...others
-      })
+      });
     },
-    setCamera ({ center, ...others }: Camera) {
+    setCamera({ center, ...others }: Camera) {
       instance.current?.moveCamera({
-        center: {
-          lat: center.latitude,
-          lng: center.longitude
-        },
+        center: { lat: center.latitude, lng: center.longitude },
         ...others
-      })
+      });
     },
-    animateToRegion (region: Region) {
+    animateToRegion(region: Region) {
       instance.current?.panTo({
         lat: region.latitude,
         lng: region.longitude
-      })
+      });
     }
-  }))
+  }));
 
+  // Update region when external state changes
   useUpdateEffect(() => {
-    setCenter({
-      lat: region!.latitude,
-      lng: region!.longitude
-    })
-    setZoom(calcZoom(region!.longitude))
-  }, [region])
+    if (!region) return;
+    setCenter({ lat: region.latitude, lng: region.longitude });
+    setZoom(calcZoom(region.longitudeDelta));
+  }, [region]);
 
   const onLoad = (map: google.maps.Map): void => {
-    instance.current = map
-    onMapReady?.()
-  }
+    instance.current = map;
+    // force style reapply on mount
+    if (customMapStyle) {
+      map.setOptions({ styles: customMapStyle });
+    }
+    onMapReady?.();
+  };
 
   const getCurrentRegion = (): Region => {
-    const zoom = instance.current?.getZoom()
-    const center = instance.current?.getCenter()
-    const delta = zoom === null ? null : zoomReverseDelta(zoom!, deltaRadio)
+    const zoom = instance.current?.getZoom();
+    const center = instance.current?.getCenter();
+    const delta = zoom == null ? null : zoomReverseDelta(zoom, deltaRatio);
     return {
       latitude: center?.lat() ?? 0,
       latitudeDelta: delta?.latitudeDelta ?? 0,
       longitude: center?.lng() ?? 0,
       longitudeDelta: delta?.longitudeDelta ?? 0
-    }
-  }
+    };
+  };
 
   const onChangeComplete = (): void => {
     const _region = getCurrentRegion()
@@ -188,7 +215,7 @@ const MapView = forwardRef(function MapView ({
   return (
     <View style={style}>
       <GoogleMap
-        mapContainerStyle={{ height: '100%' }}
+        mapContainerStyle={{ height: '100%', width: '100%' }}
         center={center}
         zoom={zoom}
         options={options}
@@ -201,7 +228,7 @@ const MapView = forwardRef(function MapView ({
         {...props}
       />
     </View>
-  )
-})
+  );
+});
 
-export default MapView
+export default MapView;
