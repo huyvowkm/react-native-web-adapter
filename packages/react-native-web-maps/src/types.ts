@@ -57,6 +57,14 @@ export interface MapViewProps extends GoogleMapProps {
    */
   customMapStyle?: google.maps.MapTypeStyle[]
   /**
+   * Show current location button in top right
+   */
+  showsMyLocationButton?: boolean
+  /**
+   * Show user's current location with a marker
+   */
+  showsUserLocation?: boolean
+  /**
    * onLoad
    */
   onMapReady?: () => void

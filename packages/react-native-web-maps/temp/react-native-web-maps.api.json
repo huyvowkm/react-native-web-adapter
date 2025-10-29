@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.12",
+    "toolVersion": "7.53.3",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -161,20 +161,20 @@
     }
   },
   "kind": "Package",
-  "canonicalReference": "@preflower/react-native-web-maps!",
+  "canonicalReference": "@huyvowkm/react-native-web-maps!",
   "docComment": "",
-  "name": "@preflower/react-native-web-maps",
+  "name": "@huyvowkm/react-native-web-maps",
   "preserveMemberOrder": false,
   "members": [
     {
       "kind": "EntryPoint",
-      "canonicalReference": "@preflower/react-native-web-maps!",
+      "canonicalReference": "@huyvowkm/react-native-web-maps!",
       "name": "",
       "preserveMemberOrder": false,
       "members": [
         {
           "kind": "Variable",
-          "canonicalReference": "@preflower/react-native-web-maps!MapView:var",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!MapView:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -197,7 +197,7 @@
             {
               "kind": "Reference",
               "text": "MapViewProps",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps:interface"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps:interface"
             },
             {
               "kind": "Content",
@@ -215,7 +215,7 @@
             {
               "kind": "Reference",
               "text": "MapViewHandle",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle:interface"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle:interface"
             },
             {
               "kind": "Content",
@@ -233,7 +233,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle:interface",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -248,7 +248,7 @@
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle#animateCamera:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle#animateCamera:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -284,7 +284,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle#animateToRegion:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle#animateToRegion:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -320,7 +320,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle#getCamera:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle#getCamera:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -352,7 +352,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewHandle#setCamera:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewHandle#setCamera:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -391,7 +391,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@preflower/react-native-web-maps!MapViewProps:interface",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -401,7 +401,7 @@
             {
               "kind": "Reference",
               "text": "GoogleMapProps",
-              "canonicalReference": "@preflower/react-native-web-maps!~GoogleMapProps_2:type"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!~GoogleMapProps_2:type"
             },
             {
               "kind": "Content",
@@ -415,7 +415,7 @@
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#customMapStyle:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#customMapStyle:member",
               "docComment": "/**\n * options.styles\n */\n",
               "excerptTokens": [
                 {
@@ -447,7 +447,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#initialRegion:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#initialRegion:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -475,7 +475,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#mapType:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#mapType:member",
               "docComment": "/**\n * options.mapTypeId\n */\n",
               "excerptTokens": [
                 {
@@ -489,7 +489,7 @@
                 {
                   "kind": "Reference",
                   "text": "MAP_TYPE_MAPS",
-                  "canonicalReference": "@preflower/react-native-web-maps!~MAP_TYPE_MAPS:var"
+                  "canonicalReference": "@huyvowkm/react-native-web-maps!~MAP_TYPE_MAPS:var"
                 },
                 {
                   "kind": "Content",
@@ -507,7 +507,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#maxZoomLevel:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#maxZoomLevel:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -534,7 +534,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#minZoomLevel:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#minZoomLevel:member",
               "docComment": "/**\n * options.maxZoom/minZoom\n */\n",
               "excerptTokens": [
                 {
@@ -561,7 +561,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#onMapReady:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#onMapReady:member",
               "docComment": "/**\n * onLoad\n */\n",
               "excerptTokens": [
                 {
@@ -588,7 +588,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#onRegionChange:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#onRegionChange:member",
               "docComment": "/**\n * onDrag, onZoomChanged\n */\n",
               "excerptTokens": [
                 {
@@ -624,7 +624,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#onRegionChangeComplete:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#onRegionChangeComplete:member",
               "docComment": "/**\n * onDragEnd, onZoomChanged\n */\n",
               "excerptTokens": [
                 {
@@ -660,7 +660,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#region:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#region:member",
               "docComment": "/**\n * center\n */\n",
               "excerptTokens": [
                 {
@@ -688,7 +688,61 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#style:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#showsMyLocationButton:member",
+              "docComment": "/**\n * Show current location button in top right\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "showsMyLocationButton?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "showsMyLocationButton",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#showsUserLocation:member",
+              "docComment": "/**\n * Show user's current location with a marker\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "showsUserLocation?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "showsUserLocation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#style:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -729,7 +783,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#zoomControlEnabled:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#zoomControlEnabled:member",
               "docComment": "/**\n * options.zoomControl\n */\n",
               "excerptTokens": [
                 {
@@ -756,7 +810,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#zoomEnabled:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#zoomEnabled:member",
               "docComment": "/**\n * options.gestureHandling = 'none'\n */\n",
               "excerptTokens": [
                 {
@@ -783,7 +837,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@preflower/react-native-web-maps!MapViewProps#zoomTapEnabled:member",
+              "canonicalReference": "@huyvowkm/react-native-web-maps!MapViewProps#zoomTapEnabled:member",
               "docComment": "/**\n * options.disableDoubleClickZoom\n */\n",
               "excerptTokens": [
                 {
@@ -818,7 +872,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@preflower/react-native-web-maps!Marker:var",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!Marker:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -837,7 +891,7 @@
             {
               "kind": "Reference",
               "text": "MarkerProps",
-              "canonicalReference": "@preflower/react-native-web-maps!~MarkerProps_2:interface"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!~MarkerProps_2:interface"
             },
             {
               "kind": "Content",
@@ -855,7 +909,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@preflower/react-native-web-maps!Polygon:var",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!Polygon:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -874,7 +928,7 @@
             {
               "kind": "Reference",
               "text": "PolygonProps",
-              "canonicalReference": "@preflower/react-native-web-maps!~PolygonProps_2:interface"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!~PolygonProps_2:interface"
             },
             {
               "kind": "Content",
@@ -892,7 +946,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@preflower/react-native-web-maps!Polyline:var",
+          "canonicalReference": "@huyvowkm/react-native-web-maps!Polyline:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -911,7 +965,7 @@
             {
               "kind": "Reference",
               "text": "PolylineProps",
-              "canonicalReference": "@preflower/react-native-web-maps!~PolylineProps_2:interface"
+              "canonicalReference": "@huyvowkm/react-native-web-maps!~PolylineProps_2:interface"
             },
             {
               "kind": "Content",
