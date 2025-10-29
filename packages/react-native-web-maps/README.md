@@ -1,8 +1,8 @@
 # react-native-web-maps
 
-[![npm version](https://badge.fury.io/js/@preflower%2Freact-native-web-maps.svg)](https://www.npmjs.com/package/@preflower/react-native-web-maps)
-[![npm download](https://img.shields.io/npm/dt/@preflower/react-native-web-maps)](https://www.npmjs.com/package/@preflower/react-native-web-maps)
-![license](https://badgen.net/npm/license/@preflower/react-native-web-maps)
+[![npm version](https://badge.fury.io/js/@huyvowkm%2Freact-native-web-maps.svg)](https://www.npmjs.com/package/@huyvowkm/react-native-web-maps)
+[![npm download](https://img.shields.io/npm/dt/@huyvowkm/react-native-web-maps)](https://www.npmjs.com/package/@huyvowkm/react-native-web-maps)
+![license](https://badgen.net/npm/license/@huyvowkm/react-native-web-maps)
 
 [react-native-maps](https://github.com/react-native-maps/react-native-maps) for Web.
 
@@ -10,10 +10,14 @@
 
 `react-native-web-maps` allow you to using `react-native-maps` seamlessly on the web, it base on [@react-google-maps/api](https://github.com/JustFly1984/react-google-maps-api).
 
+Compatible with Expo 53
+
+This is a fork from `@preflower/react-native-web-maps`
+
 ## Usage
 
 ```bash
-npm i @preflower/react-native-web-maps
+npm i @huyvowkm/react-native-web-maps
 ```
 
 webpack.config.js
@@ -25,8 +29,8 @@ webpack.config.js
       alias: [
         ...
         'react-native': 'react-native-web',
-+       /* set alias from react-native-maps to @preflower/react-native-web-maps */
-+       'react-native-maps': '@preflower/react-native-web-maps'
++       /* set alias from react-native-maps to @huyvowkm/react-native-web-maps */
++       'react-native-maps': '@huyvowkm/react-native-web-maps'
       ]
     ]
   }
@@ -36,7 +40,7 @@ App.web.tsx/jsx
 
 ```
 <!-- Before use Google Maps, you need to initialize it first -->
-import { LoadScript } from '@preflower/react-native-web-maps'
+import { LoadScript } from '@huyvowkm/react-native-web-maps'
 
 const App = () => {
   return (
@@ -52,17 +56,24 @@ const App = () => {
 
 ### **MapView**
 
-| Prop              	| Support 	| Note                                                                                   	|
-|--------------------	|---------	|----------------------------------------------------------------------------------------	|
-| region             	| ⭕️       	|                                                                                        	|
-| initialRegion      	| ⭕️       	|                                                                                        	|
-| mapType            	| ⭕️       	|                                                                                        	|
-| customMapStyle     	| ⭕️       	|                                                                                        	|
-| zoomEnabled        	| ½⭕️      	| different with react-native-maps, gesture (scroll and zoom) will be blocked when false 	|
-| zoomTapEnabled     	| ⭕️       	|                                                                                        	|
-| zoomControlEnabled 	| ⭕️       	|                                                                                        	|
-| minZoomLevel       	| ⭕️       	|                                                                                        	|
-| maxZoomLevel       	| ⭕️       	|                                                                                        	|
+| Prop              	 | Support 	  | Note                                                                                   	|
+|----------------------|------------|----------------------------------------------------------------------------------------	|
+| ref                	 | ⭕️       	|                                                                                        	|
+| provider           	 | ⭕️       	|                                                                                        	|
+| region             	 | ⭕️       	|                                                                                        	|
+| initialRegion        | ⭕️       	|                                                                                        	|
+| mapType              | ⭕️       	|                                                                                        	|
+| customMapStyle     	 | ⭕️       	|                                                                                        	|
+| zoomEnabled        	 | ½⭕️      	| different with react-native-maps, gesture (scroll and zoom) will be blocked when false 	|
+| zoomTapEnabled     	 | ⭕️       	|                                                                                        	|
+| zoomControlEnabled 	 | ⭕️       	|                                                                                        	|
+| minZoomLevel       	 | ⭕️       	|                                                                                        	|
+| maxZoomLevel       	 | ⭕️       	|                                                                                        	|
+| showsMyLocationButton| ⭕️         |                                                                                         |
+| showsUserLocation.   | ⭕️         |                                                                                         |
+| rotateEnabled        | ⭕️         |                                                                                         |
+| showsCompass         | ⭕️         |                                                                                         |
+
 
 
 | Event                 	| Support 	|
@@ -70,7 +81,7 @@ const App = () => {
 | onMapReady             	| ⭕️       	|
 | onRegionChange         	| ⭕️       	|
 | onRegionChangeComplete 	| ⭕️       	|
-| onPress                	| ⭕️       	|
+| onPress/onClick        	| ⭕️       	|
 | onDoublePress          	| ⭕️       	|
 | onPanDrag              	| ⭕️       	|
 
